@@ -1,0 +1,5 @@
+obj/*
+bin/*
+*.nuspec
+NugetLibs.GaoDeMap.xml
+NugetLibs.GaoDeMap.*.nupkg
