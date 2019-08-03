@@ -19,7 +19,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>地理编码信息</returns>
         public string GetOriginalGeoCode(GeoCodeParam geoCodeParam)
         {
-            string getUrl = "https://restapi.amap.com/v3/geocode/geo?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v3/geocode/geo?{0}";
             string paras = geoCodeParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string geoCodeResult = WebRequestHelper.HttpGet(getUrl);
@@ -50,7 +50,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>逆地理编码信息</returns>
         public string GetOriginalGeoDecode(GeoDecodeParam geoDecodeParam)
         {
-            string getUrl = "https://restapi.amap.com/v3/geocode/regeo?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v3/geocode/regeo?{0}";
             string paras = geoDecodeParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string geoDecodeResult = WebRequestHelper.HttpGet(getUrl);

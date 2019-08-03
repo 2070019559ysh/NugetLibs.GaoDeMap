@@ -19,7 +19,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>行政区域查询结果</returns>
         public string QueryOriginalAdminRegion(AdminRegionQueryParam queryParam)
         {
-            string getUrl = "https://restapi.amap.com/v3/config/district?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v3/config/district?{0}";
             string paras = queryParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string queryResult = WebRequestHelper.HttpGet(getUrl);

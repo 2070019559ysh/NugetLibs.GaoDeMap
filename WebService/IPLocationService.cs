@@ -19,7 +19,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>IP所在城市位置信息</returns>
         public string GetOriginalIPCity(IPCityParam queryParam)
         {
-            string getUrl = "https://restapi.amap.com/v3/ip?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v3/ip?{0}";
             string paras = queryParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string geoCodeResult = WebRequestHelper.HttpGet(getUrl);

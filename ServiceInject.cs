@@ -22,6 +22,7 @@ namespace NugetLibs.GaoDeMap
             services.AddScoped<IAdminRegionService, AdminRegionService>();
             services.AddScoped<IPOIPlaceService, POIPlaceService>();
             services.AddScoped<IIPLocationService, IPLocationService>();
+            services.AddScoped<IBatchService, BatchService>();
         }
     }
 }

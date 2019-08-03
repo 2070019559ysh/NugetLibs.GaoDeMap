@@ -10,6 +10,11 @@ namespace NugetLibs.GaoDeMap.HelpModel
     public static class GaoDeConst
     {
         /// <summary>
+        /// WebAPI接口的请求主机地址
+        /// </summary>
+        public const string WebAPIHost = "https://restapi.amap.com";
+
+        /// <summary>
         /// 步行特殊的方式
         /// </summary>
         public static readonly Dictionary<int, string> walkType = new Dictionary<int, string>()

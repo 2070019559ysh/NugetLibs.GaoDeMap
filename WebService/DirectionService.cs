@@ -19,7 +19,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>路径规划结果</returns>
         public string WalkOriginalPlanning(WalkPlanParam planParam)
         {
-            string getUrl = "https://restapi.amap.com/v3/direction/walking?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v3/direction/walking?{0}";
             string paras = planParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string planResult = WebRequestHelper.HttpGet(getUrl);
@@ -50,7 +50,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>路径规划结果</returns>
         public string TransitOriginalPlanning(TransitPlanParam planParam)
         {
-            string getUrl = "https://restapi.amap.com/v3/direction/transit/integrated?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v3/direction/transit/integrated?{0}";
             string paras = planParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string planResult = WebRequestHelper.HttpGet(getUrl);
@@ -81,7 +81,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>路径规划结果</returns>
         public string DrivingOriginalPlanning(DrivingPlanParam planParam)
         {
-            string getUrl = "https://restapi.amap.com/v3/direction/driving?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v3/direction/driving?{0}";
             string paras = planParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string planResult = WebRequestHelper.HttpGet(getUrl);
@@ -112,7 +112,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>路径规划结果</returns>
         public string BicyclingOriginalPlanning(BicyclingPlanParam planParam)
         {
-            string getUrl = "https://restapi.amap.com/v4/direction/bicycling?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v4/direction/bicycling?{0}";
             string paras = planParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string planResult = WebRequestHelper.HttpGet(getUrl);
@@ -143,7 +143,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>路径规划结果</returns>
         public string TruckOriginalPlanning(TruckPlanParam planParam)
         {
-            string getUrl = "https://restapi.amap.com/v4/direction/truck?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v4/direction/truck?{0}";
             string paras = planParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string planResult = WebRequestHelper.HttpGet(getUrl);
@@ -174,7 +174,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>距离测量结果</returns>
         public string DistanceOriginalMeasure(DistanceParam distanceParam)
         {
-            string getUrl = "https://restapi.amap.com/v3/distance?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v3/distance?{0}";
             string paras = distanceParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string distanceResult = WebRequestHelper.HttpGet(getUrl);

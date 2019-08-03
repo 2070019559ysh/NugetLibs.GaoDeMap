@@ -19,7 +19,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>搜索POI查询结果</returns>
         public string SearchOriginalPOIByText(POITextParam queryParam)
         {
-            string getUrl = "https://restapi.amap.com/v3/place/text?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v3/place/text?{0}";
             string paras = queryParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string queryResult = WebRequestHelper.HttpGet(getUrl);
@@ -50,7 +50,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>搜索POI查询结果</returns>
         public string SearchOriginalPOIByAround(POIAroundParam queryParam)
         {
-            string getUrl = "https://restapi.amap.com/v3/place/around?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v3/place/around?{0}";
             string paras = queryParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string queryResult = WebRequestHelper.HttpGet(getUrl);
@@ -81,7 +81,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>搜索POI查询结果</returns>
         public string SearchOriginalPOIByPolygon(POIPolygonParam queryParam)
         {
-            string getUrl = "https://restapi.amap.com/v3/place/polygon?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v3/place/polygon?{0}";
             string paras = queryParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string queryResult = WebRequestHelper.HttpGet(getUrl);
@@ -112,7 +112,7 @@ namespace NugetLibs.GaoDeMap.WebService
         /// <returns>搜索POI查询结果</returns>
         public string SearchOriginalPOIByDetail(POIDetailParam queryParam)
         {
-            string getUrl = "https://restapi.amap.com/v3/place/detail?{0}";
+            string getUrl = GaoDeConst.WebAPIHost + "/v3/place/detail?{0}";
             string paras = queryParam.GenerateParams();
             getUrl = string.Format(getUrl, paras);
             string queryResult = WebRequestHelper.HttpGet(getUrl);
