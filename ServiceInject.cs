@@ -23,6 +23,9 @@ namespace NugetLibs.GaoDeMap
             services.AddScoped<IPOIPlaceService, POIPlaceService>();
             services.AddScoped<IIPLocationService, IPLocationService>();
             services.AddScoped<IBatchService, BatchService>();
+            services.AddScoped<IStaticMapService, StaticMapService>();
+            services.AddScoped<ICoordinateService, CoordinateService>();
+            services.AddScoped<IWeatherQueryService, WeatherQueryService>();
         }
     }
 }

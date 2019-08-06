@@ -11,7 +11,7 @@ namespace NugetLibs.GaoDeMap.WebService
     public interface IBatchService
     {
         /// <summary>
-        /// 批量请求接口
+        /// 批量请求接口，当前支持所有v3（请求中带v3字样）接口
         /// </summary>
         /// <param name="webApi">需请求的webApi</param>
         /// <param name="apiParam">请求接口对应的参数</param>
@@ -19,7 +19,7 @@ namespace NugetLibs.GaoDeMap.WebService
         string RequestAllOrigin(string[] webApi, params GaoDeBaseParam[] apiParam);
 
         /// <summary>
-        /// 批量请求接口
+        /// 批量请求接口，当前支持所有v3（请求中带v3字样）接口
         /// </summary>
         /// <param name="webApi">需请求的webApi</param>
         /// <param name="apiParam">请求接口对应的参数</param>

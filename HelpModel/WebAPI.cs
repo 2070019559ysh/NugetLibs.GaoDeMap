@@ -65,6 +65,14 @@ namespace NugetLibs.GaoDeMap.HelpModel
         /// IP定位-v3【body as IPCityResult】
         /// </summary>
         public const string IP_CITY = "/v3/ip";
+        /// <summary>
+        /// 地图坐标转换-v3【body as CoordinateResult】
+        /// </summary>
+        public const string COORDINATE_CONVERT = "/v3/assistant/coordinate/convert";
+        /// <summary>
+        /// 天气查询-v3【body as WeatherResult】
+        /// </summary>
+        public const string WEATHER_QUERY = "/v3/weather/weatherInfo";
 
         /// <summary>
         /// 接口返回结果的类型集合
@@ -78,7 +86,8 @@ namespace NugetLibs.GaoDeMap.HelpModel
             { ADMIN_REGION,typeof(AdminRegionQueryResult) },
             { POI_TEXT,typeof(POIPlaceResult) },{ POI_AROUND,typeof(POIPlaceResult) },
             { POI_POLYGON,typeof(POIPlaceResult) },{ POI_DETAIL,typeof(POIPlaceResult) },
-            { IP_CITY,typeof(IPCityResult) }
+            { IP_CITY,typeof(IPCityResult) },{ COORDINATE_CONVERT,typeof(CoordinateResult)},
+            { WEATHER_QUERY,typeof(WeatherResult) }
         };
     }
 }
