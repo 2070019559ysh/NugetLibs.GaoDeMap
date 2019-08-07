@@ -77,6 +77,18 @@ namespace NugetLibs.GaoDeMap.HelpModel
         /// 输入提示-v3【body as InputTipsResult】
         /// </summary>
         public const string INPUT_TIPS = "/v3/assistant/inputtips";
+        /// <summary>
+        /// 矩形区域交通态势【body as TrafficResult】
+        /// </summary>
+        public const string RECTANGLE_TRAFFIC = "/v3/traffic/status/rectangle";
+        /// <summary>
+        /// 圆形区域交通态势【body as TrafficResult】
+        /// </summary>
+        public const string CIRCLE_TRAFFIC = "/v3/traffic/status/circle";
+        /// <summary>
+        /// 指定线路交通态势【body as TrafficResult】
+        /// </summary>
+        public const string ROAD_TRAFFIC = "/v3/traffic/status/road";
 
         /// <summary>
         /// 接口返回结果的类型集合

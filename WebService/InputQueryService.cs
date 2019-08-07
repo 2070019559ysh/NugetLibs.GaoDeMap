@@ -8,7 +8,7 @@ using System.Text;
 namespace NugetLibs.GaoDeMap.WebService
 {
     /// <summary>
-    /// 输入关键字数据查询处理
+    /// 输入提示数据查询处理
     /// </summary>
     public class InputQueryService : IInputQueryService
     {

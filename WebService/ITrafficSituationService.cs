@@ -6,22 +6,22 @@ using System.Text;
 namespace NugetLibs.GaoDeMap.WebService
 {
     /// <summary>
-    /// 输入提示数据查询处理接口声明
+    /// 交通态势查询处理服务接口声明
     /// </summary>
-    public interface IInputQueryService
+    public interface ITrafficSituationService
     {
         /// <summary>
-        /// 查询输入提示数据
+        /// 查询交通态势信息
         /// </summary>
         /// <param name="queryParam">查询参数</param>
-        /// <returns>输入提示数据</returns>
-        string SearchOriginalInputTips(InputTipsParam queryParam);
+        /// <returns>交通态势信息</returns>
+        string SearchOriginalTraffic(TrafficParam queryParam);
 
         /// <summary>
-        /// 查询输入提示数据
+        /// 查询交通态势信息
         /// </summary>
         /// <param name="queryParam">查询参数</param>
-        /// <returns>输入提示数据</returns>
-        InputTipsResult SearchInputTips(InputTipsParam queryParam);
+        /// <returns>交通态势信息</returns>
+        TrafficResult SearchTraffic(TrafficParam queryParam);
     }
 }
