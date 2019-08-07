@@ -26,6 +26,7 @@ namespace NugetLibs.GaoDeMap
             services.AddScoped<IStaticMapService, StaticMapService>();
             services.AddScoped<ICoordinateService, CoordinateService>();
             services.AddScoped<IWeatherQueryService, WeatherQueryService>();
+            services.AddScoped<IInputQueryService, InputQueryService>();
         }
     }
 }

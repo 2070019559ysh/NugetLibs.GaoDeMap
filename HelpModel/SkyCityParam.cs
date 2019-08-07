@@ -10,11 +10,11 @@ namespace NugetLibs.GaoDeMap.HelpModel
     public class SkyCityParam : GaoDeBaseParam
     {
         /// <summary>
-        /// 城市编码（城市的adcode）
+        /// 城市编码（城市的adcode），必填
         /// </summary>
         public string city;
         /// <summary>
-        /// 气象类型
+        /// 气象类型，可选
         /// <para>可选值：base/all；base:返回实况天气；all:返回预报天气</para>
         /// </summary>
         public string extensions;

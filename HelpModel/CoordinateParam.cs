@@ -10,14 +10,14 @@ namespace NugetLibs.GaoDeMap.HelpModel
     public class CoordinateParam : GaoDeBaseParam
     {
         /// <summary>
-        /// 待转换的坐标点，最多支持40对坐标
+        /// 待转换的坐标点，最多支持40对坐标，必填
         /// <para>经度和纬度用","分割，经度在前，纬度在后，经纬度小数点后不得超过6位，多个坐标之间用“|”分隔</para>
         /// </summary>
         public string locations;
         /// <summary>
-        /// 原坐标系
+        /// 原坐标系，可选
         /// </summary>
-        public CoordsysType coordsys;
+        public CoordsysType coordsys = CoordsysType.autonavi;
     }
 
     /// <summary>

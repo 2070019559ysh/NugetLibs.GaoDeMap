@@ -73,6 +73,10 @@ namespace NugetLibs.GaoDeMap.HelpModel
         /// 天气查询-v3【body as WeatherResult】
         /// </summary>
         public const string WEATHER_QUERY = "/v3/weather/weatherInfo";
+        /// <summary>
+        /// 输入提示-v3【body as InputTipsResult】
+        /// </summary>
+        public const string INPUT_TIPS = "/v3/assistant/inputtips";
 
         /// <summary>
         /// 接口返回结果的类型集合
@@ -86,8 +90,8 @@ namespace NugetLibs.GaoDeMap.HelpModel
             { ADMIN_REGION,typeof(AdminRegionQueryResult) },
             { POI_TEXT,typeof(POIPlaceResult) },{ POI_AROUND,typeof(POIPlaceResult) },
             { POI_POLYGON,typeof(POIPlaceResult) },{ POI_DETAIL,typeof(POIPlaceResult) },
-            { IP_CITY,typeof(IPCityResult) },{ COORDINATE_CONVERT,typeof(CoordinateResult)},
-            { WEATHER_QUERY,typeof(WeatherResult) }
+            { IP_CITY,typeof(IPCityResult) },{ COORDINATE_CONVERT,typeof(CoordinateResult) },
+            { WEATHER_QUERY,typeof(WeatherResult) },{ INPUT_TIPS,typeof(InputTipsResult) }
         };
     }
 }
