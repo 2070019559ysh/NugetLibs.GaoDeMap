@@ -28,6 +28,8 @@ namespace NugetLibs.GaoDeMap
             services.AddScoped<IWeatherQueryService, WeatherQueryService>();
             services.AddScoped<IInputQueryService, InputQueryService>();
             services.AddScoped<ITrafficSituationService, TrafficSituationService>();
+            services.AddScoped<IGeoFenceService, GeoFenceService>();
+            services.AddScoped<IGraspRoadService, GraspRoadService>();
         }
     }
 }
