@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using NugetLibs.GaoDeMap.CloudService;
 using NugetLibs.GaoDeMap.WebService;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,7 @@ namespace NugetLibs.GaoDeMap
             services.AddScoped<ITrafficSituationService, TrafficSituationService>();
             services.AddScoped<IGeoFenceService, GeoFenceService>();
             services.AddScoped<IGraspRoadService, GraspRoadService>();
+            services.AddScoped<ICloudDataService, CloudDataService>();
         }
     }
 }
