@@ -32,6 +32,10 @@ namespace NugetLibs.GaoDeMap.CloudModel
     public class CloudDataInfo
     {
         /// <summary>
+        /// 数据id，修改时必填
+        /// </summary>
+        public string _id;
+        /// <summary>
         /// 数据名称，必填
         /// </summary>
         public string _name;

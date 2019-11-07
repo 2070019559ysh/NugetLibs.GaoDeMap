@@ -28,13 +28,31 @@ namespace NugetLibs.GaoDeMap.CloudModel
         {
             Type thisType = this.GetType();
             this.sig = null;//首次转换查询字符串要忽略数字签名
+            if (!string.IsNullOrWhiteSpace(GaoDeConfig.SignSecret))
+            {
+                string paras = QueryHelper.ToQueryString(this, thisType);
+                paras = QueryHelper.QueryStringSort(paras);//查询字符串排序生成签名后再插入数字签名
+                this.sig = EncryptHelper.HashMD5(paras + GaoDeConfig.SignSecret);
+            }
+            return QueryHelper.ToDictionary(this, thisType);
+        }
+
+        /// <summary>
+        /// 生成实例对象对应的查询字符串参数
+        /// </summary>
+        /// <returns>查询字符串参数</returns>
+        public string GenerateParam()
+        {
+            Type thisType = this.GetType();
+            this.sig = null;//首次转换查询字符串要忽略数字签名
             string paras = QueryHelper.ToQueryString(this, thisType);
             if (!string.IsNullOrWhiteSpace(GaoDeConfig.SignSecret))
             {
                 paras = QueryHelper.QueryStringSort(paras);//查询字符串排序生成签名后再插入数字签名
                 this.sig = EncryptHelper.HashMD5(paras + GaoDeConfig.SignSecret);
+                paras = QueryHelper.ToQueryString(this, thisType);
             }
-            return QueryHelper.ToDictionary(this, thisType);
+            return paras;
         }
     }
 }

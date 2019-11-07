@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using NugetLibs.GaoDeMap.CloudModel;
+using NugetLibs.GaoDeMap.HelpModel;
 using NugetLibs.HelpTool;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,7 @@ namespace NugetLibs.GaoDeMap.CloudService
         /// <returns>创建单条数据结果对象</returns>
         public CloudDataResult CreateData(SingleDataParam singleData)
         {
+            if (singleData == null) throw new ArgumentNullException("singleData");
             Dictionary<string,string> postData = singleData.GenerateParams();
             CloudDataResult result = WebRequestHelper.FormPostHttp<CloudDataResult>("https://yuntuapi.amap.com/datamanage/data/create",
                postData);
@@ -68,12 +70,60 @@ namespace NugetLibs.GaoDeMap.CloudService
         /// <returns>批量创建任务结果</returns>
         public CloudBatchDataResult CreateBatchData(string fileName, BatchDataParam batchData)
         {
+            if (batchData == null) throw new ArgumentNullException("batchData");
             UploadFileParam uploadFileParam = new UploadFileParam("https://yuntuapi.amap.com/datamanage/data/batchcreate",
                 fileName, batchData.file);
             uploadFileParam.FileNameKey = "file";
             uploadFileParam.PostParameters = batchData.GenerateParams();
             string resultStr = WebRequestHelper.UploadFile(uploadFileParam);
             CloudBatchDataResult resultObj = JsonConvert.DeserializeObject<CloudBatchDataResult>(resultStr);
+            return resultObj;
+        }
+
+        /// <summary>
+        /// 更新单条云图数据
+        /// </summary>
+        /// <param name="singleData">单条云图数据</param>
+        /// <returns>更新单条数据结果对象</returns>
+        public GaoDeBaseResult UpdateData(SingleDataParam singleData)
+        {
+            if (singleData == null) throw new ArgumentNullException("singleData");
+            Dictionary<string, string> postData = singleData.GenerateParams();
+            GaoDeBaseResult result = WebRequestHelper.FormPostHttp<GaoDeBaseResult>("https://yuntuapi.amap.com/datamanage/data/update",
+               postData);
+            return result;
+        }
+
+        /// <summary>
+        /// 删除单条或批量的云图数据
+        /// </summary>
+        /// <param name="delData">删除的云图数据</param>
+        /// <returns>删除云图数据结果对象</returns>
+        public DelDataResult DeleteData(DelDataParam delData)
+        {
+            if (delData == null) throw new ArgumentNullException("delData");
+            Dictionary<string, string> postData = delData.GenerateParams();
+            DelDataResult result = WebRequestHelper.FormPostHttp<DelDataResult>("https://yuntuapi.amap.com/datamanage/data/delete",
+               postData);
+            return result;
+        }
+
+        /// <summary>
+        /// 批量创建云图数据的进度查询 
+        /// </summary>
+        /// <param name="queryParam">查询参数</param>
+        /// <returns>进度查询 结果</returns>
+        public BatchSearchResult SearchBatchProgress(BatchSearchParam queryParam)
+        {
+            string getUrl = "https://yuntuapi.amap.com/datamanage/batch/importstatus?{0}";
+            string paras = queryParam.GenerateParam();
+            getUrl = string.Format(getUrl, paras);
+            string queryResult = WebRequestHelper.HttpGet(getUrl);
+            if (!string.IsNullOrWhiteSpace(queryResult))
+            {
+                queryResult = queryResult.Replace("[]", "\"\"");
+            }
+            BatchSearchResult resultObj = JsonConvert.DeserializeObject<BatchSearchResult>(queryResult);
             return resultObj;
         }
     }
