@@ -1,4 +1,5 @@
-﻿using NugetLibs.GaoDeMap.CloudModel;
+﻿using Newtonsoft.Json;
+using NugetLibs.GaoDeMap.CloudModel;
 using NugetLibs.HelpTool;
 using System;
 using System.Collections.Generic;
@@ -57,6 +58,23 @@ namespace NugetLibs.GaoDeMap.CloudService
             CloudDataResult result = WebRequestHelper.FormPostHttp<CloudDataResult>("https://yuntuapi.amap.com/datamanage/data/create",
                postData);
             return result;
+        }
+
+        /// <summary>
+        /// 批量创建云图数据
+        /// </summary>
+        /// <param name="fileName">文件名，如：cloudmap.xlsx</param>
+        /// <param name="batchData">云图数据批量参数</param>
+        /// <returns>批量创建任务结果</returns>
+        public CloudBatchDataResult CreateBatchData(string fileName, BatchDataParam batchData)
+        {
+            UploadFileParam uploadFileParam = new UploadFileParam("https://yuntuapi.amap.com/datamanage/data/batchcreate",
+                fileName, batchData.file);
+            uploadFileParam.FileNameKey = "file";
+            uploadFileParam.PostParameters = batchData.GenerateParams();
+            string resultStr = WebRequestHelper.UploadFile(uploadFileParam);
+            CloudBatchDataResult resultObj = JsonConvert.DeserializeObject<CloudBatchDataResult>(resultStr);
+            return resultObj;
         }
     }
 }

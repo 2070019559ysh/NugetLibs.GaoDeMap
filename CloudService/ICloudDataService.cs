@@ -30,5 +30,13 @@ namespace NugetLibs.GaoDeMap.CloudService
         /// <param name="singleData">单条云图数据</param>
         /// <returns>创建单条数据结果对象</returns>
         CloudDataResult CreateData(SingleDataParam singleData);
+
+        /// <summary>
+        /// 批量创建云图数据
+        /// </summary>
+        /// <param name="fileName">文件名，如：cloudmap.xlsx</param>
+        /// <param name="batchData">云图数据批量参数</param>
+        /// <returns>批量创建任务结果</returns>
+        CloudBatchDataResult CreateBatchData(string fileName, BatchDataParam batchData);
     }
 }
