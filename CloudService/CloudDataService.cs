@@ -17,15 +17,21 @@ namespace NugetLibs.GaoDeMap.CloudService
         /// 创建云图表，返回原字符串
         /// </summary>
         /// <param name="name">云图表名称</param>
+        /// <param name="key">高德Key</param>
+        /// <param name="secret">高德密钥</param>
         /// <returns>创建云图表结果字符串</returns>
-        public string CreateTableOriginal(string name)
+        public string CreateTableOriginal(string name, string key = null, string secret = null)
         {
-            string queryString = QueryHelper.QueryStringSort("key=" + GaoDeConfig.AppKey + "&name=" + name);
-            string result = WebRequestHelper.FormPostHttp("https://yuntuapi.amap.com/datamanage/table/create", new Dictionary<string,string>
+            if (string.IsNullOrWhiteSpace(key))
+                key = GaoDeConfig.AppKey;
+            if (string.IsNullOrWhiteSpace(secret))
+                secret = GaoDeConfig.SignSecret;
+            string queryString = QueryHelper.QueryStringSort("key=" + key + "&name=" + name);
+            string result = WebRequestHelper.FormPostHttp("https://yuntuapi.amap.com/datamanage/table/create", new Dictionary<string, string>
             {
-                { "key", GaoDeConfig.AppKey },
+                { "key", key  },
                 { "name", name },
-                { "sig", EncryptHelper.HashMD5(queryString + GaoDeConfig.SignSecret) }
+                { "sig", EncryptHelper.HashMD5(queryString + secret) }
             });
             return result;
         }
@@ -34,16 +40,22 @@ namespace NugetLibs.GaoDeMap.CloudService
         /// 创建云图表
         /// </summary>
         /// <param name="name">云图表名称</param>
+        /// <param name="key">高德Key</param>
+        /// <param name="secret">高德密钥</param>
         /// <returns>创建云图表结果对象</returns>
-        public CloudTableResult CreateTable(string name)
+        public CloudTableResult CreateTable(string name, string key = null, string secret = null)
         {
-            string queryString = QueryHelper.QueryStringSort("key=" + GaoDeConfig.AppKey + "&name=" + name);
+            if (string.IsNullOrWhiteSpace(key))
+                key = GaoDeConfig.AppKey;
+            if (string.IsNullOrWhiteSpace(secret))
+                secret = GaoDeConfig.SignSecret;
+            string queryString = QueryHelper.QueryStringSort("key=" + key + "&name=" + name);
             CloudTableResult result = WebRequestHelper.FormPostHttp<CloudTableResult>("https://yuntuapi.amap.com/datamanage/table/create",
                 new Dictionary<string, string>
                 {
-                    { "key", GaoDeConfig.AppKey },
+                    { "key", key },
                     { "name", name },
-                    { "sig", EncryptHelper.HashMD5(queryString + GaoDeConfig.SignSecret) }
+                    { "sig", EncryptHelper.HashMD5(queryString + secret) }
                 });
             return result;
         }

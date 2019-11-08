@@ -15,15 +15,19 @@ namespace NugetLibs.GaoDeMap.CloudService
         /// 创建云图表，返回原字符串
         /// </summary>
         /// <param name="name">云图表名称</param>
+        /// <param name="key">高德Key</param>
+        /// <param name="secret">高德密钥</param>
         /// <returns>创建云图表结果字符串</returns>
-        string CreateTableOriginal(string name);
+        string CreateTableOriginal(string name, string key = null, string secret = null);
 
         /// <summary>
         /// 创建云图表
         /// </summary>
         /// <param name="name">云图表名称</param>
+        /// <param name="key">高德Key</param>
+        /// <param name="secret">高德密钥</param>
         /// <returns>创建云图表结果对象</returns>
-        CloudTableResult CreateTable(string name);
+        CloudTableResult CreateTable(string name, string key = null, string secret = null);
 
         /// <summary>
         /// 创建单条云图数据

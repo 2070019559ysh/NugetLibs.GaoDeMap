@@ -32,6 +32,7 @@ namespace NugetLibs.GaoDeMap
             services.AddScoped<IGeoFenceService, GeoFenceService>();
             services.AddScoped<IGraspRoadService, GraspRoadService>();
             services.AddScoped<ICloudDataService, CloudDataService>();
+            services.AddScoped<IDataSearchService, DataSearchService>();
         }
     }
 }
